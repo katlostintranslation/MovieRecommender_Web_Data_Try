@@ -12,7 +12,7 @@ namespace MovieRecommender2022.Data
     {
         internal static List<Movie> Load(string url = @"movies.xml")
         {
-            var movieElements = XElement.Load(url).Elements("movie"); //we use a full control of xml
+            IEnumerable<XElement>? movieElements = XElement.Load(url).Elements("movie"); //we use a full control of xml
 
             return movieElements.Select(x => new Movie //approach with movie elements
             {
