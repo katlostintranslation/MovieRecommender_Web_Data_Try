@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MovieRecommender2022.Data;
+using MovieRecommender2022.Web.MovieRecFunctions;
 
 namespace MovieRecommender2022.Web
 {
@@ -8,6 +9,42 @@ namespace MovieRecommender2022.Web
     {
         public static void Main(string[] args)
         {
+            var movieList = new MovieList();
+
+            while (true)
+            {
+                var menuSelection = Menu.GetUserMenuSelection();
+
+                switch (menuSelection) //cause our menu is predefined
+                {
+                    case "A":
+                        AddMovieHelper.Start(movieList); //call the method
+                        break;
+                    case "D":
+                        DeleteMovieHelper.Start(movieList);
+                        break;
+                    case "F":
+                        FindRecommendationHelper.Start(movieList);
+                        break;
+                    case "E":
+                        return;
+                }
+            }
+
+
+            //movieList.Add(new Movie("Titanic"));
+            //movieList.Add(new Movie("Shrek"));
+            //movieList.Add(new Movie("Harry Potter 1"));
+            //movieList.Add(new Movie("Harry Potter 2"));
+            //movieList.Add(new Movie("Harry Potter 3"));
+            //movieList.Add(new Movie("Harry Potter 4"));
+
+            //var movies = movieList.Recommend("Titanic");
+
+            //foreach (var item in movies)
+            //{
+            //    Console.WriteLine(item);
+            //}
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
