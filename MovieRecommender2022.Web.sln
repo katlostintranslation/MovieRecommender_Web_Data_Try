@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRecommender2022.Web", "MovieRecommender2022.Web\MovieRecommender2022.Web.csproj", "{2320EACC-1846-47F7-8393-EF44CB9AECC8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D92A5241-E819-471B-845B-C380B12125EC} = {D92A5241-E819-471B-845B-C380B12125EC}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRecommender2022.Data", "MovieRecommender2022.Data\MovieRecommender2022.Data.csproj", "{D92A5241-E819-471B-845B-C380B12125EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2320EACC-1846-47F7-8393-EF44CB9AECC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2320EACC-1846-47F7-8393-EF44CB9AECC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2320EACC-1846-47F7-8393-EF44CB9AECC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2320EACC-1846-47F7-8393-EF44CB9AECC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D92A5241-E819-471B-845B-C380B12125EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D92A5241-E819-471B-845B-C380B12125EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D92A5241-E819-471B-845B-C380B12125EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D92A5241-E819-471B-845B-C380B12125EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F05EE61-3FBF-497A-9FC3-A6A39647893E}
+	EndGlobalSection
+EndGlobal
