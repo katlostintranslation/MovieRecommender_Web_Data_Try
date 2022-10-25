@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MovieRecommender2022.Data.Models;
 
 namespace MovieRecommender2022.Data
 {
@@ -9,5 +10,7 @@ namespace MovieRecommender2022.Data
             : base(options)
         {
         }
+
+        public DbSet<Movie> Movies { get; set; }
     }
 }
