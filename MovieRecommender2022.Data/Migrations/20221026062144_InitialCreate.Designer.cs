@@ -12,8 +12,8 @@ using MovieRecommender2022.Data;
 namespace MovieRecommender2022.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221025151506_MovieAdded")]
-    partial class MovieAdded
+    [Migration("20221026062144_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -226,24 +226,51 @@ namespace MovieRecommender2022.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("MovieRecommender2022.Data.Models.Movie", b =>
+            modelBuilder.Entity("MovieRecommender2022.Data.Models.Keyword", b =>
                 {
-                    b.Property<int>("Rating")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Rating"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Genre")
+                    b.Property<int?>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Value")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("Keyword");
+                });
+
+            modelBuilder.Entity("MovieRecommender2022.Data.Models.Movie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Genre")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Rating");
+                    b.HasKey("Id");
 
                     b.ToTable("Movies");
                 });
@@ -297,6 +324,18 @@ namespace MovieRecommender2022.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MovieRecommender2022.Data.Models.Keyword", b =>
+                {
+                    b.HasOne("MovieRecommender2022.Data.Models.Movie", null)
+                        .WithMany("Keywords")
+                        .HasForeignKey("MovieId");
+                });
+
+            modelBuilder.Entity("MovieRecommender2022.Data.Models.Movie", b =>
+                {
+                    b.Navigation("Keywords");
                 });
 #pragma warning restore 612, 618
         }

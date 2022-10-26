@@ -9,29 +9,16 @@ namespace MovieRecommender2022.Data.Models
 {
     public class Movie
     {
-        //[Key]
-        //public int Rating { get; set; }
-       
-        //public string Title { get; set; }
-        //[Required]
-        //[MaxLength(50)]
-        //public string Genre { get; set; }
-
-
-        public Movie(string title)
-        {
-            Title = title;
-        }
-
-        public Movie()
-        {
-        }
+        [Key]
+        public int Id { get; set; }
 
         public string Title { get; set; }
 
+        public string Description { get; set; }
+
         public GenreEnum Genre { get; set; }
 
-        public string[] Keywords { get; set; }
+        public List<Keyword> Keywords { get; set; } = new List<Keyword>();
 
         public int Rating { get; set; }
 
