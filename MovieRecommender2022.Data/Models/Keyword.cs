@@ -10,5 +10,9 @@ namespace MovieRecommender2022.Data.Models
     {
         public int Id { get; set; }
         public string Value { get; set; }
+
+        public int MovieId { get; set; }
+
+        public Movie Movie { get; set; }
     }
 }
