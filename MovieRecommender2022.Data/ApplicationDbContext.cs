@@ -12,5 +12,7 @@ namespace MovieRecommender2022.Data
         }
 
         public DbSet<Movie> Movies { get; set; }
+
+        public DbSet<Keyword> Keywords { get; set; }
     }
 }

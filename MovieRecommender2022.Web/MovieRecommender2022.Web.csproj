@@ -23,4 +23,8 @@
     <ProjectReference Include="..\MovieRecommender2022.Data\MovieRecommender2022.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\KeywordsSearch\" />
+  </ItemGroup>
+
 </Project>
